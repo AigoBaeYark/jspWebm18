@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 //import customer.controller.member.LoginProcController;
 //import customer.controller.member.LogoutProcController;
 //import customer.controller.notice.DownloadController;
-//import customer.controller.notice.NoticeController;
+import customer.controller.notice.*;
 //import customer.controller.notice.NoticeDelProcController;
 //import customer.controller.notice.NoticeDetailController;
 //import customer.controller.notice.NoticeEditController;
@@ -34,7 +34,7 @@ public class MyDispatcher extends HttpServlet{
 		System.out.println("conPath: "+conPath); // properties - Web Project Settings - context root 값 
 		System.out.println("com: "+com); // 주소줄을 간결하게 표현하기 위해 conPath를 자른 것
 		
-		//Controller controller=null;
+		Controller controller=null;
 		
 		// NoticeDetailController controller1=new NoticeDetailController();
 		// NoticeEditController controller2=new NoticeEditController();
@@ -53,9 +53,11 @@ public class MyDispatcher extends HttpServlet{
 //				controller=new NoticeRegProcController();
 //			} else if (com.equals("/customer/noticeDelProc.do")){
 //				controller=new NoticeDelProcController();
-//			} else if (com.equals("/customer/notice.do")){
-//				controller=new NoticeController();
-//			} else if (com.equals("/login/login.do")){
+//			} else 
+			if (com.equals("/customer/notice.do")){
+				controller=new NoticeController();
+			} 
+//			else if (com.equals("/login/login.do")){
 //				controller=new LoginController();
 //			} else if (com.equals("/login/loginProc.do")){
 //				controller=new LoginProcController();
@@ -65,7 +67,7 @@ public class MyDispatcher extends HttpServlet{
 //				controller=new DownloadController();
 //			}
 			
-			//controller.execute(request,response);
+			controller.execute(request,response);
 		} catch (Exception e) {
 			
 		}
